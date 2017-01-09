@@ -15,5 +15,5 @@
   limitations under the License.
   -->
 <resources>
-    <string name="app_name">My Android Things app</string>
+    <string name="app_name">Android Things Morse</string>
 </resources>

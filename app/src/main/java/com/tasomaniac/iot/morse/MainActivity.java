@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.androidthings.myproject;
+package com.tasomaniac.iot.morse;
 
 import android.app.Activity;
 import android.os.Bundle;
