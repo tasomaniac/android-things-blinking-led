@@ -37,4 +37,6 @@ android {
 
 dependencies {
     provided 'com.google.android.things:androidthings:0.1-devpreview'
+    compile 'com.jakewharton.timber:timber:4.4.0'
+
 }
