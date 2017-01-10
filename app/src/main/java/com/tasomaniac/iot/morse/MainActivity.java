@@ -17,6 +17,7 @@
 package com.tasomaniac.iot.morse;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -61,6 +62,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.plant(new Timber.DebugTree());
         PeripheralManagerService manager = new PeripheralManagerService();
 
         try {
@@ -68,9 +70,27 @@ public class MainActivity extends Activity {
             gpio.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
             gpio.setActiveType(Gpio.ACTIVE_HIGH);
 
-            toggle.run();
+            handleIntent(getIntent());
         } catch (IOException e) {
             Timber.w(e, "Unable to access GPIO");
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+        if (gpio == null) {
+            return;
+        }
+        boolean lightsOn = intent.getBooleanExtra("lightsOn", false);
+        if (lightsOn) {
+            toggle.run();
+        } else {
+            handler.removeCallbacks(toggle);
         }
     }
 
