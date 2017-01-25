@@ -12,7 +12,8 @@ public class IoTMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
 
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("lightsOn", "true".equals(remoteMessage.getData().get("lightsOn")));
+        intent.putExtra("lightsOn",
+                        "true".equals(remoteMessage.getData().get("lightsOn")));
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

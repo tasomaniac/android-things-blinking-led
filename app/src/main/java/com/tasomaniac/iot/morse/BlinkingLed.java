@@ -18,19 +18,20 @@ class BlinkingLed {
 
     private boolean active;
 
-    static BlinkingLed create(PeripheralManagerService manager, Handler handler) throws IOException {
+    static BlinkingLed create(PeripheralManagerService manager, Handler handler)
+            throws IOException {
         Gpio gpio = manager.openGpio(LED_PORT);
         gpio.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
         gpio.setActiveType(Gpio.ACTIVE_HIGH);
         return new BlinkingLed(gpio, handler);
     }
 
-    public BlinkingLed(Gpio gpio, Handler handler) {
+    private BlinkingLed(Gpio gpio, Handler handler) {
         this.gpio = gpio;
         this.handler = handler;
     }
 
-    public void setBlinking(boolean value) {
+    void setBlinking(boolean value) {
         if (value) {
             repeatCommand.run();
         } else {
