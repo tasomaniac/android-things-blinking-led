@@ -1,7 +1,9 @@
-Android Things empty project template
-=====================================
+Android Things Blinking Led
+===========================
 
-Use this empty project as a template for your Android Things project.
+Based on [Android Things empty project template](https://github.com/androidthings/new-project-template). 
+
+I wanted to start with this template to demonstrate how easy it is to start with a new IoT project with Android Things.
 
 
 Pre-requisites
