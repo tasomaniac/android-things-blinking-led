@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.novoda.android-command'
 
 android {
     compileSdkVersion 24

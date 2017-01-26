@@ -18,11 +18,10 @@ Build and install
 
 On Android Studio, click on the "Run" button.
 
-If you prefer to run on the command line, type
+The project uses Novoda's [gradle-android-command-plugin](https://github.com/novoda/gradle-android-command-plugin). If you prefer to run on the command line, type
 
 ```bash
-./gradlew installDebug
-adb shell am start com.example.androidthings.myproject/.MainActivity
+./gradlew runDebug
 ```
 
 License
